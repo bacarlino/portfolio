@@ -1,0 +1,22 @@
+#contact .header {
+  padding-bottom: 25px;
+}
+
+#contact .icon {
+  padding: 15px;
+}
+
+#contact img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0;
+}
+
+#contact a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#contact h3 {
+  margin-top: 10px;
+}
