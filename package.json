@@ -1,0 +1,37 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bacarlino/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bacarlino/portfolio/issues"
+  },
+  "homepage": "https://github.com/bacarlino/portfolio#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1",
+    "webpack-bundle-tracker": "^0.2.0",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.1"
+  }
+}

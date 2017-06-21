@@ -3,9 +3,11 @@
 {% block body %}
 
 {% load static %}
+{% load render_bundle from webpack_loader %}
 
 <div id="app"></div>
 
 <script src="{% static "react/index_bundle.js" %}"></script>
+{% render_bundle 'main' %}
 
 {% endblock %}
