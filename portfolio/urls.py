@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^wikiviewer/$', views.wikiviewer, name='wikiviewer'),
     url(r'^twitch/$', views.twitch, name='twitch'),
     url(r'^tictactoe/$', views.tictactoe, name='tictactoe'),
-    url(r'^react/home', views.react, name='react'),
+    url(r'^react/', views.react, name='react'),
 ]

@@ -18,11 +18,11 @@ export default class FCC extends React.Component {
         <div className="react-container">
           <Nav />
           <Switch>
-            <Route exact path='/portfolio/react/home' component={Home} />
+            <Route exact path='/portfolio/react' component={Home} />
             <Route path='/portfolio/react/calculator' component={Calculator} />
             <Route path='/portfolio/react/pomodoro' component={Pomodoro} />
             <Route path='/portfolio/react/simon' component={Simon} />
-            <Route path='/portfolio/react/home' component={Home} />
+            {/* <Route  component={Home} /> */}
             {/* <Route path='/tictactoe' />  */}
             <Route render={function () {
               return <p>Not Found</p>

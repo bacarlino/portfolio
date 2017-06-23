@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <ul className='react-nav'>
       <li>
-        <NavLink exact activeClassName='active' to='/portfolio/react/home'>Home</NavLink>
+        <NavLink exact activeClassName='active' to='/portfolio/react'>Home</NavLink>
       </li>
       <li>
         <NavLink activeClassName='active' to='/portfolio/react/calculator'>Calculator</NavLink>
