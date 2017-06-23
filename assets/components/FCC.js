@@ -15,13 +15,14 @@ export default class FCC extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div className="react-container">
           <Nav />
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/calculator' component={Calculator} />
-            <Route path='/pomodoro' component={Pomodoro} />
-            <Route path='/simon' component={Simon} />
+            <Route exact path='/portfolio/react/home' component={Home} />
+            <Route path='/portfolio/react/calculator' component={Calculator} />
+            <Route path='/portfolio/react/pomodoro' component={Pomodoro} />
+            <Route path='/portfolio/react/simon' component={Simon} />
+            <Route path='/portfolio/react/home' component={Home} />
             {/* <Route path='/tictactoe' />  */}
             <Route render={function () {
               return <p>Not Found</p>

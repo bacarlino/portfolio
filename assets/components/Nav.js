@@ -4,18 +4,18 @@ import { Link, NavLink } from 'react-router-dom';
 
 export default function Nav() {
   return (
-    <ul className='nav'>
+    <ul className='react-nav'>
       <li>
-        <NavLink exact activeClassName='active' to='/'>Home</NavLink>
+        <NavLink exact activeClassName='active' to='/portfolio/react/home'>Home</NavLink>
       </li>
       <li>
-        <NavLink activeClassName='active' to='/calculator'>Calculator</NavLink>
+        <NavLink activeClassName='active' to='/portfolio/react/calculator'>Calculator</NavLink>
       </li>
       <li>
-        <NavLink activeClassName='active' to='/pomodoro'>Pomodoro</NavLink>
+        <NavLink activeClassName='active' to='/portfolio/react/pomodoro'>Pomodoro</NavLink>
       </li>
       <li>
-        <NavLink activeClassName='active' to='/simon'>Simon</NavLink>
+        <NavLink activeClassName='active' to='/portfolio/react/simon'>Simon</NavLink>
       </li>
       {/* <li><a href="/portfolio/tictactoe">Tic-Tac-Toe</a></li>
         <li><a href="/portfolio/weather">Local Weather</a></li>

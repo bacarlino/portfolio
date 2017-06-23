@@ -159,7 +159,8 @@ export default class Simon extends React.Component {
   audioInit() {
     if (!this.state.audioInit) {
       audio.soundEffects = document.createElement("audio");
-      audio.soundEffects.src = '/static/bundles/' + padSounds;
+      audio.soundEffects.src = '/static/audio/padsounds.mp3';
+      // audio.soundEffects.src = '/static/bundles/' + padSounds;
       audio.soundEffects.stopTime = 0;
       audio.soundEffects.play();
       audio.soundEffects.addEventListener('timeupdate', function () {
@@ -349,7 +350,7 @@ export default class Simon extends React.Component {
       <div id='simon'>
         <h1>Simon</h1>
         <div id='simon-container'>
-          <div className='row'>
+          <div className='simon-row'>
             <Pad
               onClick={this.padClicked}
               id='green'
@@ -364,7 +365,7 @@ export default class Simon extends React.Component {
               userResponse={this.state.userResponse}
             />
           </div>
-          <div className='row'>
+          <div className='simon-row'>
             <Pad
               onClick={this.padClicked}
               id='yellow'

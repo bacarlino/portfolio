@@ -1,16 +1,3 @@
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-  /*border: solid red;*/
-}
-
 html,
 body,
 #app
@@ -38,12 +25,12 @@ a {
   color: #222;
 }
 
-.container {
+.react-container {
   text-align: center;
   height: 100%;
 }
 
-.nav {
+.react-nav {
   display: flex;
   justify-content: center;
 }
@@ -52,21 +39,21 @@ a {
   font-weight: bold;
 }
 
-.nav li {
+.react-nav li {
   margin-right: 15px;
 }
 
-#home {
+#react-home {
   display: flex;
   flex-direction: column;
 }
 
-#home h1 {
+#react-home h1 {
   font-size: 3000%;
   margin: 0;
 }
 
-#home h2 {
+#react-home h2 {
   margin-top: 0;
 }
 
