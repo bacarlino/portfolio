@@ -17,6 +17,10 @@
   text-align: center;
 }
 
+#simon p {
+  margin: 25px;
+}
+
 #simon-container {
   width: 500px;
   position: relative;

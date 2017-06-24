@@ -33,7 +33,6 @@ a {
 .react-nav {
   display: flex;
   justify-content: center;
-  margin-top: 25px;
   margin-bottom: 100px;
 }
 
@@ -67,6 +66,10 @@ a {
   @media (max-width: 500px) {
     #home h1 {
       font-size: 1250%;
+    }
+
+    .react-nav {
+      margin-bottom: 40px;
     }
   }
 }

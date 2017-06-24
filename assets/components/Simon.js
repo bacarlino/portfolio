@@ -390,6 +390,8 @@ export default class Simon extends React.Component {
             </div>
           </div>
         </div>
+        <p>If the audio is delayed, please try refreshing the page. There's a bug
+        when loading the audio (for the first time) in some browsers.</p>
       </div>
     );
   }
