@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
+var BundleClean = require('webpack-bundle-clean');
 
 module.exports = {
   context: __dirname,
@@ -13,6 +14,7 @@ module.exports = {
   },
 
   plugins: [
+    new BundleClean({filename: './webpack-stats.json'}),
     new BundleTracker({filename: './webpack-stats.json'}),
   ],
 

@@ -133,7 +133,6 @@ class Calculator extends React.Component {
   render() {
     return (
       <div id="calc-app">
-        <h1>Calculator</h1>
         <div id="calc-shell">
           <table id="calc-body">
             {/* <tbody> */}

@@ -96,5 +96,13 @@ a {
     #home h1 {
       font-size: 1250%;
     }
+
+    .navbar-brand {
+      font-size: 2em;
+    }
+
+    #home h1 {
+      margin-top: 0;
+    }
   }
 }

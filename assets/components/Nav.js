@@ -5,14 +5,14 @@ import { Link, NavLink } from 'react-router-dom';
 export default function Nav() {
   return (
     <ul className='react-nav'>
-      <li>
+      {/* <li>
         <NavLink exact activeClassName='active' to='/portfolio/react'>Home</NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink activeClassName='active' to='/portfolio/react/calculator'>Calculator</NavLink>
       </li>
       <li>
-        <NavLink activeClassName='active' to='/portfolio/react/pomodoro'>Pomodoro</NavLink>
+        <NavLink activeClassName='active' to='/portfolio/react/pomodoro'>Pomodoro Clock</NavLink>
       </li>
       <li>
         <NavLink activeClassName='active' to='/portfolio/react/simon'>Simon</NavLink>

@@ -348,7 +348,6 @@ export default class Simon extends React.Component {
   render() {
     return (
       <div id='simon'>
-        <h1>Simon</h1>
         <div id='simon-container'>
           <div className='simon-row'>
             <Pad

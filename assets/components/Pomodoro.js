@@ -171,7 +171,6 @@ class Pomodoro extends React.Component {
   render() {
     return (
       <div className="pom-wrapper">
-        <h1>Pomodoro Clock</h1>
         <h2>Currently in {this.state.mode} mode</h2>
         <Display face={this.state.mainTime} onClick={this.runTimer.bind(this)}/> {/* </div> */}
         <div className="counter">

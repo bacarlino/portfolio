@@ -11800,11 +11800,15 @@ var FCC = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'react-container' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            'The navigation below and projects listed here were made using React'
+          ),
           _react2.default.createElement(_Nav2.default, null),
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
-            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/portfolio/react', component: _Home2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/portfolio/react/calculator', component: _Calculator2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/portfolio/react/pomodoro', component: _Pomodoro2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/portfolio/react/simon', component: _Simon2.default }),
@@ -12058,11 +12062,6 @@ var Calculator = function (_React$Component3) {
         'div',
         { id: 'calc-app' },
         React.createElement(
-          'h1',
-          null,
-          'Calculator'
-        ),
-        React.createElement(
           'div',
           { id: 'calc-shell' },
           React.createElement(
@@ -12192,15 +12191,6 @@ function Nav() {
       null,
       _react2.default.createElement(
         _reactRouterDom.NavLink,
-        { exact: true, activeClassName: 'active', to: '/portfolio/react' },
-        'Home'
-      )
-    ),
-    _react2.default.createElement(
-      'li',
-      null,
-      _react2.default.createElement(
-        _reactRouterDom.NavLink,
         { activeClassName: 'active', to: '/portfolio/react/calculator' },
         'Calculator'
       )
@@ -12211,7 +12201,7 @@ function Nav() {
       _react2.default.createElement(
         _reactRouterDom.NavLink,
         { activeClassName: 'active', to: '/portfolio/react/pomodoro' },
-        'Pomodoro'
+        'Pomodoro Clock'
       )
     ),
     _react2.default.createElement(
@@ -12485,11 +12475,6 @@ var Pomodoro = function (_React$Component4) {
       return _react2.default.createElement(
         'div',
         { className: 'pom-wrapper' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Pomodoro Clock'
-        ),
         _react2.default.createElement(
           'h2',
           null,
@@ -12961,11 +12946,6 @@ var Simon = function (_React$Component2) {
       return _react2.default.createElement(
         'div',
         { id: 'simon' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Simon'
-        ),
         _react2.default.createElement(
           'div',
           { id: 'simon-container' },
@@ -13977,7 +13957,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n  }\n}\n", ""]);
+exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n  margin-top: 25px;\n  margin-bottom: 100px;\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n  }\n}\n", ""]);
 
 // exports
 
