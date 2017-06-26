@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio.apps.PortfolioConfig',
+    'portfolio',
     'webpack_loader',
     'whitenoise.runserver_nostatic',
 ]
