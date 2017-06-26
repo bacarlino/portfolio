@@ -20,7 +20,7 @@ var wikiApp = function() {
     console.log('searchClick');
 
     $.ajax({
-        url: "http://en.wikipedia.org/w/api.php?callback=?",
+        url: "https://en.wikipedia.org/w/api.php?callback=?",
         data: {
         action: 'opensearch',
         search: $('#search-box').val(),

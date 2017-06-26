@@ -23,6 +23,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='/portfolio/', permanent=True)),
     url(r'^portfolio/', include('portfolio.urls')),
-
-
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_URL)

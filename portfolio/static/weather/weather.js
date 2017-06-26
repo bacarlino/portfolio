@@ -23,18 +23,20 @@ var weatherApp = {
 
   geoFail: function() {
     console.log("Geolocation unsuccessful, using ip-api.com");
-    $.getJSON("http://ip-api.com/json", weatherApp.ipApiCB);
+    // $.getJSON("https://ip-api.com/json", weatherApp.ipApiCB);
+    $.getJSON("https://ipapi.co/json", weatherApp.ipApiCB);
+
   },
 
   ipApiCB: function(locData) {
-    var lat = locData.lat.toString();
-    var lon = locData.lon.toString();
+    var lat = locData.latitude.toString();
+    var lon = locData.longitude.toString();
     weatherApp.getWeatherData(weatherApp.weatherDataReady, lat, lon);
   },
 
   getWeatherData: function(weatherDataReady, lat, lon) {
     var weatherKey = 'dbed1f53591ea590a560d6f326507643'
-    var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + lon + '&APPID=' + weatherKey;
+    var weatherURL = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + lat + '&lon=' + lon + '&APPID=' + weatherKey;
     $.getJSON(weatherURL, weatherDataReady);
   },
 

@@ -14,19 +14,25 @@
       <h3>Brandon Carlino - Developer</h3>
     </div>
   </div> <!-- row -->
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      {% load static %}
+      <img class="img-responsive img-rounded text-center" src="{% static "images/profilepic.png" %}" />
+    </div>
+  </div>
 
   <div class="row">
     <div class="col-xs-offset-2 col-xs-4 icon">
       <a href="https://github.com/bacarlino">
         {% load static %}
-        <img src="{% static 'images/Github.png' %}" />
+        <img class="img-rounded contact-icon" src="{% static 'images/Github.png' %}" />
         <h3>Github</h3>
       </a>
     </div>
     <div class="col-xs-4 icon">
       <a href="https://www.linkedin.com/pub/brandon-carlino/99/35/1a4">
         {% load static %}
-        <img src="{% static 'images/Linkedin.png' %}" />
+        <img class="img-rounded contact-icon" src="{% static 'images/Linkedin.png' %}" />
         <h3>LinkedIn</h3>
       </a>
     </div>
@@ -35,14 +41,14 @@
     <div class="col-xs-offset-2 col-xs-4 icon">
       <a href="https://www.facebook.com/bacarlino">
         {% load static %}
-        <img src="{% static 'images/Facebook.png' %}" />
+        <img class="img-rounded contact-icon" src="{% static 'images/Facebook.png' %}" />
         <h3>FaceBook</h3>
       </a>
     </div>
     <div class="col-xs-4 icon">
       <a href="mailto:bacarlino@gmail.com">
         {% load static %}
-        <img src="{% static 'images/email.jpeg' %}" />
+        <img class="img-rounded contact-icon" src="{% static 'images/email.jpeg' %}" />
         <h3>Email</h3>
       </a>
     </div>
