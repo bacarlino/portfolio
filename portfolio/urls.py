@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url # url(regex, template, name=<name>)
 from django.views.generic import TemplateView
 from . import views
 
