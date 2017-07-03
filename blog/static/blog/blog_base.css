@@ -1,0 +1,14 @@
+.blogpost {
+  background-color: lightgray;
+  padding: 5px 30px;
+  margin: 10px 10px;
+  border-radius: 10px;
+}
+
+#blog-header {
+  margin-left: 10px;
+}
+
+button, .form-button {
+  margin: 10px 10px 10px 0;
+}

@@ -1,12 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/blog_base.css' %}" />
 
 <div class="container">
   <div class="row">
     <div class="col-sm-offset-4 col-sm-4">
 
-  <form action="" method="post">
+  <form class="signup" action="" method="post">
     {% csrf_token %}
 
     {% for field in form %}
@@ -19,7 +21,9 @@
     </div>
     {% endfor %}
 
-    <input type="submit" value="Submit" />
+    <input class="form-button" type="submit" value="Sign Up" />
+    <a class="login-link" href="{% url 'login' %}"><button type="button">Login</button></a>
+    <a href="{% url 'blog_home' %}"><button type="button">Cancel</button></a>
   </form>
 </div>
 </div>

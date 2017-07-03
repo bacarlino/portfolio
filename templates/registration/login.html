@@ -2,6 +2,8 @@
 {% load widget_tweaks %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/blog_base.css' %}" />
 
 <div class="container">
   <div class="row">
@@ -15,12 +17,12 @@
   {% if user.is_authenticated %}
   <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
   {% else %}
-  <p>Please login to see this page.</p>
+  <!-- <p>Please login to see this page.</p> -->
   {% endif %}
 {% endif %}
 
 
-<form class="" method="post" action="{% url 'login' %}">
+<form class="login" method="post" action="{% url 'login' %}">
 
   {% csrf_token %}
 
@@ -34,14 +36,14 @@
   </div>
 
   <div>
-    <input type="submit" value="Login"  />
+
+    <input class="form-button" type="submit" value="Login"  />
+    <a href="{% url 'signup' %}"><button type="button">Signup</button></a>
+    <a href="{% url 'blog_home' %}"><button type="button">Cancel</button></a>
     <input type="hidden" name="next" value="{{ next }}" />
+
   </div>
 </form>
-<a href="{% url 'signup' %}"><button>Signup</button></a>
-<!-- <a href="{% url 'register' %}"><button>Register</button></a> -->
-
-<!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
 
 </div>
 </div>
