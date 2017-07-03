@@ -3,6 +3,16 @@ from django.db import models
 from django.urls import reverse
 import uuid
 
+
+# class UserProfile(models.Model):
+#     user = models.OneToOneField(User)
+#
+#     picture = models.ImageField(upload_to='profile_images', blank=True)
+#
+#     def __unicode__(self):
+#         return self.user.username
+
+
 class BlogPost(models.Model):
 
     uuid = models.UUIDField(default=uuid.uuid4, help_text='Unique ID for this blog post')

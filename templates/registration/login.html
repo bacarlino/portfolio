@@ -1,6 +1,11 @@
 {% extends 'base_generic.html' %}
+{% load widget_tweaks %}
 
 {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
 
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
@@ -14,24 +19,31 @@
   {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
+
+<form class="" method="post" action="{% url 'login' %}">
+
   {% csrf_token %}
 
-  <div>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
+  <div class="form-group">
+    {{ form.username.label_tag }}
+    {{ form.username|add_class:"form-control" }}
   </div>
-  <div>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
+  <div class="form-group">
+    {{ form.password.label_tag }}
+    {{ form.password|add_class:"form-control" }}
   </div>
 
   <div>
-    <input type="submit" value="login"  />
+    <input type="submit" value="Login"  />
     <input type="hidden" name="next" value="{{ next }}" />
   </div>
 </form>
+<a href="{% url 'signup' %}"><button>Signup</button></a>
+<!-- <a href="{% url 'register' %}"><button>Register</button></a> -->
 
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+<!-- <p><a href="{% url 'password_reset' %}">Lost password?</a></p> -->
 
+</div>
+</div>
+</div> <!-- container -->
 {% endblock %}

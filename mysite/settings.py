@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'blog',
     'webpack_loader',
     'whitenoise.runserver_nostatic',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4">
+
+  <form action="" method="post">
+    {% csrf_token %}
+
+    {% for field in form %}
+    <div class="form-group">
+      {{ field.errors }}
+      {{ field.label_tag }} {{ field }}
+      {% if field.error_messages %}
+      <span class="help">{{ field.help_text|safe }}</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+</div>
+</div> <!-- container -->
+{% endblock %}
