@@ -15,7 +15,7 @@ import uuid
 
 class BlogPost(models.Model):
 
-    uuid = models.UUIDField(default=uuid.uuid4, help_text='Unique ID for this blog post')
+    id = models.UUIDField(default=uuid.uuid4, help_text='Unique ID for this blog post')
 
     title = models.CharField(max_length=200)
 
