@@ -7,5 +7,3 @@ ReactDOM.render(
   <FCC />,
   document.getElementById('app')
 );
-
- 
