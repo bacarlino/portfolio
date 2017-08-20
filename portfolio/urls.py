@@ -1,10 +1,12 @@
 from django.conf.urls import url
+from django.views.generic import TemplateView
 from . import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^about/$', views.about, name='about'),
-    url(r'^contact/$', views.contact, name='contact'),
+    url(r'^contact/$', TemplateView.as_view(template_name="contact.html"), name='contact'),
+    # url(r'^contact/$', views.contact, name='contact'),
     url(r'^projects/$', views.projects, name='projects'),
     url(r'^tribute/$', views.tribute, name='tribute'),
     url(r'^weather/$', views.weather, name='weather'),
