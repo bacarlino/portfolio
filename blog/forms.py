@@ -25,20 +25,9 @@ class SignupForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        #  Add the bootstrap class 'form-control' to each field
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
     })
-
-    # password1 = forms.CharField(
-    #     label="Password",
-    #     strip=False,
-    #     widget=forms.PasswordInput,
-    #     help_text=password_validation.password_validators_help_text_html(),
-    # )
-    # password2 = forms.CharField(
-    #     label="Password confirmation",
-    #     widget=forms.PasswordInput,
-    #     strip=False,
-    #     help_text=_("Enter the same password as before, for verification."),
-    # )
