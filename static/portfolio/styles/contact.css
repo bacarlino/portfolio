@@ -1,0 +1,26 @@
+#contact .header {
+  padding-bottom: 25px;
+}
+
+#contact .icon {
+  padding: 15px;
+}
+
+#contact .contact-icon {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 0;
+}
+
+#contact a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#contact h3 {
+  margin-top: 10px;
+}
+
+#contact .pic {
+  /*max-width: 500px;*/
+}

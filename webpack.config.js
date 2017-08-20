@@ -6,10 +6,10 @@ var BundleClean = require('webpack-bundle-clean');
 module.exports = {
   context: __dirname,
 
-  entry: './assets/index', // entry point of our app. assets/js/index.js should require other js modules and dependencies it needs
+  entry: './static/react/index',
 
   output: {
-      path: path.resolve('./assets/bundles/'),
+      path: path.resolve('./static/react/bundles/'),
       filename: "[name]-[hash].js"
   },
 

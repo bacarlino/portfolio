@@ -1,0 +1,22 @@
+{% extends "portfolio/projects.html" %}
+
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/styles/randomquote.css' %}">
+
+<!-- <div class="container"> -->
+  <!-- <div class="row"> -->
+    <div class="col-md-10 col-md-offset-1">
+      <div class="quote-box">
+        <p></p>
+        <a class="" href=""><img  class="twitter-icon" src="https://s20.postimg.org/khvijbonh/Twitter_Logo_White_On_Blue.png"alt="Tweet Quote"></a>
+        <button>Next Quote</button>
+      </div>
+    </div>
+  <!-- </div> -->
+<!-- </div> -->
+
+{% load static %}
+<script src="{% static "portfolio/scripts/randomquote.js" %}"></script>
+
+{% endblock %}

@@ -18,9 +18,20 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import RedirectView
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from blog import views as blog_views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='/portfolio/', permanent=True)),
     url(r'^portfolio/', include('portfolio.urls')),
+    url(r'^blog/', include('blog.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/signup/$', blog_views.signup, name='signup'),
+    url(r'^accounts/register/$', blog_views.register, name='register'),
+
+    # url(r'^accounts/signup/$', CreateView.as_view(template_name='registration/signup.html', form_class=UserCreationForm, success_url='/blog/')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_URL)
