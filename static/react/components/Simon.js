@@ -1,8 +1,8 @@
 import React from 'react';
-import padSounds from '../audio/padsounds.mp3';
+// import padSounds from '../audio/padsounds.mp3';
 import '../styles/simon.css';
 
-const audio = {
+var sounds = {
   stopTime: 0,
   green: {
     start: 0.9,
@@ -32,7 +32,7 @@ class Pad extends React.Component {
 
     this.state = {
       on: false,
-      audio: false,
+      sounds: false,
       triggered: false
     }
   }
@@ -44,9 +44,11 @@ class Pad extends React.Component {
   }
 
   activate() {
-    audio.stopTime = audio[this.props.id].start + audio[this.props.id].length;
-    audio.soundEffects.currentTime = audio[this.props.id].start;
-    audio.soundEffects.play();
+    sounds.soundEffects.currentTime = 2.5;
+    console.log(sounds.soundEffects.currentTime);
+    sounds.stopTime = sounds[this.props.id].start + sounds[this.props.id].length;
+    sounds.soundEffects.currentTime = sounds[this.props.id].start;
+    sounds.soundEffects.play();
     this.setState(function() {
       return {on: true};
     }, () => {
@@ -88,6 +90,7 @@ export default class Simon extends React.Component {
   constructor(props) {
     super(props);
     this.padList = ['green', 'red', 'yellow', 'blue'];
+    sounds.soundEffects = new Audio('/static/react/audio/padsounds.mp3');
 
     this.state = {
      on: false,
@@ -158,15 +161,11 @@ export default class Simon extends React.Component {
 
   audioInit() {
     if (!this.state.audioInit) {
-      audio.soundEffects = document.createElement("audio");
-      audio.soundEffects.src = '/static/audio/padsounds.mp3';
-      // audio.soundEffects.src = '/static/bundles/' + padSounds;
-      audio.soundEffects.stopTime = 0;
-      audio.soundEffects.play();
-      audio.soundEffects.addEventListener('timeupdate', function () {
-        if (audio.soundEffects.currentTime >= audio.stopTime) {
-          audio.soundEffects.pause();
-
+      sounds.soundEffects.src = '/static/react/audio/padsounds.mp3';
+      sounds.soundEffects.play();
+      sounds.soundEffects.addEventListener('timeupdate', function () {
+        if (sounds.soundEffects.currentTime >= sounds.stopTime) {
+          sounds.soundEffects.pause();
         }
       });
       this.setState(function () {
@@ -174,6 +173,7 @@ export default class Simon extends React.Component {
       })
     }
   }
+
   toggleStrict() {
     let strict = this.state.strict;
     if (this.state.on && !this.state.strict) {
@@ -320,11 +320,9 @@ export default class Simon extends React.Component {
     this.userResponseOff();
     clearTimeout(this.timer);
 
-    audio.stopTime = audio.buzzer.start + audio.buzzer.length;
-    audio.soundEffects.currentTime = audio.buzzer.start;
-    console.log('Playing buzzer at', audio.buzzer.start);
-    console.log('stopTime set to', audio.stopTime);
-    audio.soundEffects.play();
+    sounds.stopTime = sounds.buzzer.start + sounds.buzzer.length;
+    sounds.soundEffects.currentTime = sounds.buzzer.start;
+    sounds.soundEffects.play();
 
     this.buzzer = setTimeout(() => {
       if (!this.state.strict) {
@@ -390,8 +388,6 @@ export default class Simon extends React.Component {
             </div>
           </div>
         </div>
-        <p>If the audio is delayed, please try refreshing the page. There's a bug
-        when loading the audio (for the first time) in some browsers.</p>
       </div>
     );
   }
