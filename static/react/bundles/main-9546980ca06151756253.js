@@ -12531,10 +12531,499 @@ exports.default = Pomodoro;
 
 /***/ }),
 /* 105 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (7:10)\n\n\u001b[0m \u001b[90m  5 | \u001b[39m\u001b[36mvar\u001b[39m sounds \u001b[33m=\u001b[39m {\n \u001b[90m  6 | \u001b[39m  soundEffects\u001b[33m:\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 | \u001b[39m  stopTime\u001b[33m:\u001b[39m \u001b[35m0\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m    | \u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m  8 | \u001b[39m  green\u001b[33m:\u001b[39m {\n \u001b[90m  9 | \u001b[39m    start\u001b[33m:\u001b[39m \u001b[35m0.9\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 10 | \u001b[39m    length\u001b[33m:\u001b[39m \u001b[35m0.4\u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(238);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import padSounds from '../audio/padsounds.mp3';
+
+
+var sounds = {
+  stopTime: 0,
+  green: {
+    start: 0.9,
+    length: 0.4
+  },
+  red: {
+    start: 2.4,
+    length: 0.4
+  },
+  yellow: {
+    start: 3.9,
+    length: 0.4
+  },
+  blue: {
+    start: 5.4,
+    length: 0.4
+  },
+  buzzer: {
+    start: 6.9,
+    length: 1.6
+  }
+};
+
+var Pad = function (_React$Component) {
+  _inherits(Pad, _React$Component);
+
+  function Pad(props) {
+    _classCallCheck(this, Pad);
+
+    var _this = _possibleConstructorReturn(this, (Pad.__proto__ || Object.getPrototypeOf(Pad)).call(this, props));
+
+    _this.state = {
+      on: false,
+      sounds: false,
+      triggered: false
+    };
+    return _this;
+  }
+
+  _createClass(Pad, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.triggered) {
+        this.activate();
+      }
+    }
+  }, {
+    key: 'activate',
+    value: function activate() {
+      var _this2 = this;
+
+      sounds.soundEffects.currentTime = 2.5;
+      console.log(sounds.soundEffects.currentTime);
+      sounds.stopTime = sounds[this.props.id].start + sounds[this.props.id].length;
+      sounds.soundEffects.currentTime = sounds[this.props.id].start;
+      sounds.soundEffects.play();
+      this.setState(function () {
+        return { on: true };
+      }, function () {
+        setTimeout(function () {
+          return _this2.setState(function () {
+            return { on: false };
+          }, function () {});
+        }, 420);
+      });
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(e) {
+      e.persist();
+      if (!e.nativeEvent.isTrusted) {
+        this.activate();
+      } else {
+        if (!this.props.padLock && this.props.userResponse) {
+          this.activate();
+          this.props.onClick(this.props.id);
+        }
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', {
+        id: this.props.id,
+        className: 'simon-pad ' + (this.state.on ? 'on' : 'off'),
+        onClick: this.handleClick.bind(this) });
+    }
+  }]);
+
+  return Pad;
+}(_react2.default.Component);
+
+var Simon = function (_React$Component2) {
+  _inherits(Simon, _React$Component2);
+
+  function Simon(props) {
+    _classCallCheck(this, Simon);
+
+    var _this3 = _possibleConstructorReturn(this, (Simon.__proto__ || Object.getPrototypeOf(Simon)).call(this, props));
+
+    _this3.padList = ['green', 'red', 'yellow', 'blue'];
+    sounds.soundEffects = new Audio('/static/react/audio/padsounds.mp3');
+
+    _this3.state = {
+      on: false,
+      strict: false,
+      start: false,
+      count: 0,
+      padLock: false,
+      cpuSeq: [],
+      userSeq: [],
+      cpuClick: false,
+      userResponse: false
+    };
+
+    _this3.toggleOn = _this3.toggleOn.bind(_this3);
+    _this3.toggleStart = _this3.toggleStart.bind(_this3);
+    _this3.toggleStrict = _this3.toggleStrict.bind(_this3);
+    _this3.padClicked = _this3.padClicked.bind(_this3);
+    _this3.evaluate = _this3.evaluate.bind(_this3);
+    return _this3;
+  }
+
+  _createClass(Simon, [{
+    key: 'resetState',
+    value: function resetState() {
+      clearTimeout(this.buzzer);
+      clearTimeout(this.timer);
+      clearInterval(this.cpuPlay);
+      this.setState(function () {
+        return {
+          on: false,
+          strict: false,
+          start: false,
+          count: 0,
+          padLock: false,
+          cpuSeq: [],
+          userSeq: [],
+          cpuClick: false,
+          userResponse: false,
+          buzzer: false
+        };
+      });
+    }
+  }, {
+    key: 'restartState',
+    value: function restartState() {
+      clearTimeout(this.buzzer);
+      clearTimeout(this.timer);
+      clearInterval(this.cpuPlay);
+      this.setState(function () {
+        return {
+          start: false,
+          count: 0,
+          padLock: false,
+          cpuSeq: [],
+          userSeq: [],
+          cpuClick: false,
+          userResponse: false,
+          buzzer: false
+        };
+      });
+    }
+  }, {
+    key: 'toggleOn',
+    value: function toggleOn() {
+      if (this.state.on) {
+        this.resetState();
+      } else {
+        this.setState(function () {
+          return !this.state.on && { on: true };
+        }, this.audioInit.bind(this));
+      }
+    }
+  }, {
+    key: 'audioInit',
+    value: function audioInit() {
+      if (!this.state.audioInit) {
+        sounds.soundEffects.src = '/static/react/audio/padsounds.mp3';
+        sounds.soundEffects.play();
+        sounds.soundEffects.addEventListener('timeupdate', function () {
+          if (sounds.soundEffects.currentTime >= sounds.stopTime) {
+            sounds.soundEffects.pause();
+          }
+        });
+        this.setState(function () {
+          return { audioInit: true };
+        });
+      }
+    }
+  }, {
+    key: 'toggleStrict',
+    value: function toggleStrict() {
+      var strict = this.state.strict;
+      if (this.state.on && !this.state.strict) {
+        strict = true;
+      } else if (this.state.strict) {
+        strict = false;
+      }
+      this.setState(function () {
+        return { strict: strict };
+      });
+    }
+  }, {
+    key: 'toggleStart',
+    value: function toggleStart() {
+      if (this.state.on) {
+        if (!this.state.start) {
+          this.runGame();
+          this.setState(function () {
+            return { start: true };
+          });
+        } else {
+          this.restartState();
+        };
+      }
+    }
+  }, {
+    key: 'togglePadLock',
+    value: function togglePadLock() {
+      this.setState(function () {
+        return this.state.padLock ? { padLock: false } : { padLock: true };
+      });
+    }
+  }, {
+    key: 'toggleUserResponse',
+    value: function toggleUserResponse() {
+      this.setState(function () {
+        return this.state.userResponse ? { userResponse: false } : { userResponse: true };
+      });
+    }
+  }, {
+    key: 'userResponseOn',
+    value: function userResponseOn() {
+      this.setState(function () {
+        return { userResponse: true };
+      });
+    }
+  }, {
+    key: 'userResponseOff',
+    value: function userResponseOff() {
+      this.setState(function () {
+        return { userResponse: false };
+      });
+    }
+  }, {
+    key: 'clearUserSeq',
+    value: function clearUserSeq() {
+      this.setState(function () {
+        return { userSeq: [] };
+      });
+    }
+  }, {
+    key: 'clearCpuSeq',
+    value: function clearCpuSeq() {
+      this.setState(function () {
+        return { cpuSeq: [], count: 0 };
+      });
+    }
+  }, {
+    key: 'padClicked',
+    value: function padClicked(id) {
+      var userSeq = this.state.userSeq;
+      if (this.state.userResponse) {
+        clearTimeout(this.timer);
+        userSeq.push(id);
+        this.setState(function () {
+          return {
+            userSeq: userSeq
+          };
+        });
+        this.evaluate();
+      }
+    }
+  }, {
+    key: 'userInput',
+    value: function userInput() {
+      this.userResponseOn();
+      this.timer = setTimeout(this.playBuzzer.bind(this), 3000);
+    }
+  }, {
+    key: 'evaluate',
+    value: function evaluate() {
+      var userSeq = this.state.userSeq;
+      var cpuSeq = this.state.cpuSeq;
+
+      this.userResponseOff();
+
+      for (var i = 0; i < userSeq.length; i++) {
+        if (userSeq[i] === cpuSeq[i]) {
+          continue;
+        } else {
+          clearTimeout(this.timer);
+          this.playBuzzer();
+          return;
+        }
+      }
+      if (userSeq.length === cpuSeq.length) {
+        setTimeout(this.runGame.bind(this), 800);
+      } else {
+        this.userInput();
+      }
+    }
+  }, {
+    key: 'addPad',
+    value: function addPad() {
+      var padList = ['green', 'red', 'yellow', 'blue'];
+      var cpuSeq = this.state.cpuSeq;
+      cpuSeq.push(padList[Math.floor(Math.random() * this.padList.length)]);
+      this.setState(function () {
+        return {
+          cpuSeq: cpuSeq,
+          count: cpuSeq.length
+        };
+      });
+    }
+  }, {
+    key: 'clickPad',
+    value: function clickPad(id) {
+      document.getElementById(id).click();
+    }
+  }, {
+    key: 'playCpuSeq',
+    value: function playCpuSeq() {
+      var _this4 = this;
+
+      var seq = this.state.cpuSeq;
+      var i = 0;
+
+      this.togglePadLock();
+      this.cpuPlay = setInterval(function () {
+
+        if (i < seq.length) {
+          _this4.clickPad(seq[i]);
+          i++;
+        } else {
+          clearInterval(_this4.cpuPlay);
+          i = 0;
+          _this4.togglePadLock();
+          _this4.userInput();
+        }
+      }, 470);
+    }
+  }, {
+    key: 'playVictory',
+    value: function playVictory() {}
+  }, {
+    key: 'playBuzzer',
+    value: function playBuzzer() {
+      var _this5 = this;
+
+      this.userResponseOff();
+      clearTimeout(this.timer);
+
+      sounds.stopTime = sounds.buzzer.start + sounds.buzzer.length;
+      sounds.soundEffects.currentTime = sounds.buzzer.start;
+      sounds.soundEffects.play();
+
+      this.buzzer = setTimeout(function () {
+        if (!_this5.state.strict) {
+          _this5.clearUserSeq();
+          _this5.playCpuSeq();
+        } else {
+          _this5.restartState();
+        }
+        _this5.setState(function () {
+          return { buzzer: false };
+        });
+      }, 1500);
+    }
+  }, {
+    key: 'runGame',
+    value: function runGame() {
+      this.clearUserSeq();
+      this.addPad();
+      this.playCpuSeq();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'simon' },
+        _react2.default.createElement(
+          'div',
+          { id: 'simon-container' },
+          _react2.default.createElement(
+            'div',
+            { className: 'simon-row' },
+            _react2.default.createElement(Pad, {
+              onClick: this.padClicked,
+              id: 'green',
+              padLock: this.state.padLock,
+              userResponse: this.state.userResponse
+
+            }),
+            _react2.default.createElement(Pad, {
+              onClick: this.padClicked,
+              id: 'red',
+              padLock: this.state.padLock,
+              userResponse: this.state.userResponse
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'simon-row' },
+            _react2.default.createElement(Pad, {
+              onClick: this.padClicked,
+              id: 'yellow',
+              padLock: this.state.padLock,
+              userResponse: this.state.userResponse
+            }),
+            _react2.default.createElement(Pad, {
+              onClick: this.padClicked,
+              id: 'blue',
+              padLock: this.state.padLock,
+              userResponse: this.state.userResponse
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'center-area' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Simon'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'controls' },
+              _react2.default.createElement(
+                'div',
+                { className: 'control-top' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'count' },
+                  this.state.on ? this.state.count : ''
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { className: this.state.start ? 'start-on' : 'start', onClick: this.toggleStart },
+                  'Start'
+                ),
+                _react2.default.createElement(
+                  'button',
+                  { className: this.state.strict ? 'strict-on' : 'strict', onClick: this.toggleStrict },
+                  'Strict'
+                )
+              ),
+              _react2.default.createElement(
+                'button',
+                { className: !this.state.on ? 'on-off' : 'on-off-on', onClick: this.toggleOn },
+                'ON/OFF'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Simon;
+}(_react2.default.Component);
+
+exports.default = Simon;
 
 /***/ }),
 /* 106 */
@@ -13484,7 +13973,20 @@ exports.push([module.i, "/* POMODORO */\n\n* {\n  /*border: red solid;*/\n}\n\n.
 
 
 /***/ }),
-/* 111 */,
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(29)(undefined);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Sarpanch:900);", ""]);
+
+// module
+exports.push([module.i, "/* SIMON */\n\n* {\n  /*outline: solid red;*/\n}\n\n#simon {\n  /*width: 500px;*/\n  margin: 0 auto;\n  /*outline: solid limegreen;*/\n}\n\n#simon h1 {\n  text-align: center;\n}\n\n#simon p {\n  margin: 25px;\n}\n\n#simon-container {\n  width: 500px;\n  position: relative;\n  margin: 0 auto;\n  background-color: black;\n  border-radius: 100%;\n  /*border: solid orange;*/\n}\n\n.simon-row {\n  width: 100%;\n  height: 250px;\n  /*outline: solid blue;*/\n  }\n\n.simon-pad {\n  display: inline-block;\n  width: 50%;\n  height: 100%;\n  border: solid black 30px;\n}\n\n.simon-pad:hover {\n  cursor: pointer;\n}\n\n#green {\n  border-right: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-left-radius: 100%;\n  background-color: #008500;\n}\n\n#green.on {\n  background-color: #00FF00;\n}\n\n #red {\n  border-left: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-right-radius: 100%;\n  background-color: #850000;\n}\n\n#red.on {\n  background-color: #FF0000;\n}\n\n#yellow {\n  border-right: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-left-radius: 100%;\n  background-color: #858500;\n}\n\n#yellow.on {\n  background-color: #FFFF00;\n}\n\n #blue {\n  border-left: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-right-radius: 100%;\n  background-color: #000085;\n}\n#blue.on {\n  background-color: #0000FF;\n}\n\n.center-area {\n  text-align: center;\n  color: #ddd;\n  background-color: black;\n  width: 250px;\n  height: 250px;\n  border-radius: 100%;\n  position: absolute;\n  top: 125px;\n  left: 125px;\n  margin: 0 auto;\n}\n\n.center-area h1 {\n  font-weight: 900;\n  font-family: 'Sarpanch', sans-serif;\n  margin-top: 45px;\n  margin-bottom: 0;\n  font-size: 60px;\n}\n\n.controls * {\n  border-radius: 10px;\n  padding: 7px;\n}\n\n.control-top {\n  display: flex;\n  justify-content: space-around;\n}\n\n\n.count {\n  width: 50px;\n  background-color: #333;\n  color: rgb(255, 0, 0);\n  font-weight: bold;\n}\n\n.start {\n  padding: 5px;\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.start-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color:#23d144;\n}\n\n.strict {\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.strict-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color: #23d144;\n}\n\n.on-off {\n  margin-top: 25px;\n  background-color: #ddd;\n  color: black;\n}\n\n.on-off-on {\n  margin-top: 25px;\n  border-color: #23d144;\n  background-color: #23d144\n}\n\nbutton.on {\n  background-color: red;\n}\n\n/*SIMON MEDIA QUERY*/\n\n@media (max-width: 550px) {\n\n  #simon-container {\n    width: 300px;\n  }\n\n  .simon-row {\n    width: 100%;\n    height: 150px;\n    }\n\n  .center-area {\n    width: 150px;\n    height: 150px;\n    top: 75px;\n    left: 75px;\n  }\n\n  .center-area h1 {\n    margin-top: 30px;\n    font-size: 30px;\n  }\n\n  .simon-pad {\n    display: inline-block;\n    width: 50%;\n    height: 100%;\n    border: solid black 20px;\n  }\n\n\n  .control-top {\n    justify-content: center;\n  }\n\n  .center-area h1 {\n    margin-top: 20px;\n    margin-bottom: 0px;\n  }\n\n  .center-area * {\n    margin: 0 5px;\n    padding: 0;\n    font-size: 10px;\n  }\n\n  .controls * {\n    padding-top: 5px;\n    padding-bottom: 5px;\n  }\n\n  .on-off {\n    margin-top: 10px;\n  }\n\n  .on-off-on {\n    margin-top: 10px;\n  }\n\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -27038,7 +27540,37 @@ if(false) {
 }
 
 /***/ }),
-/* 238 */,
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(111);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(39)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./simon.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./simon.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
 /* 239 */
 /***/ (function(module, exports) {
 
