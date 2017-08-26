@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'portfolio',
     'blog',
     'webpack_loader',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'widget_tweaks',
 ]
 
