@@ -12932,9 +12932,11 @@ var Simon = function (_React$Component2) {
   }, {
     key: 'runGame',
     value: function runGame() {
-      this.clearUserSeq();
-      this.addPad();
-      this.playCpuSeq();
+      if (this.state.on) {
+        this.clearUserSeq();
+        this.addPad();
+        this.playCpuSeq();
+      }
     }
   }, {
     key: 'render',

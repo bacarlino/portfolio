@@ -313,8 +313,8 @@ export default class Simon extends React.Component {
   }
 
   playVictory() {
-
   }
+
 
   playBuzzer() {
     this.userResponseOff();
@@ -338,9 +338,11 @@ export default class Simon extends React.Component {
   }
 
   runGame() {
-    this.clearUserSeq();
-    this.addPad();
-    this.playCpuSeq();
+    if (this.state.on) {
+      this.clearUserSeq();
+      this.addPad();
+      this.playCpuSeq();
+    }
   }
 
   render() {
