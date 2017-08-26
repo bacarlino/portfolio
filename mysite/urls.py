@@ -30,8 +30,5 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^accounts/signup/$', blog_views.signup, name='signup'),
-
-
     # url(r'^accounts/signup/$', CreateView.as_view(template_name='registration/signup.html', form_class=UserCreationForm, success_url='/blog/')),
-
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_URL)
