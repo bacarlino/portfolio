@@ -25,9 +25,9 @@ urlpatterns = [
 
     url(r'^tictactoe/$', TemplateView.as_view(template_name="portfolio/tictactoe.html"), name='tictactoe'),
 
-    url(r'^react/simon', TemplateView.as_view(template_name="portfolio/react.html"), name='simon'),
+    url(r'^react/simon/', TemplateView.as_view(template_name="portfolio/react.html"), name='simon'),
 
-    url(r'^react/pomodoro', TemplateView.as_view(template_name="portfolio/react.html"), name='clock'),
+    url(r'^react/pomodoro/', TemplateView.as_view(template_name="portfolio/react.html"), name='clock'),
 
-    url(r'^react/calculator', TemplateView.as_view(template_name="portfolio/react.html"), name='calc'),
+    url(r'^react/calculator/', TemplateView.as_view(template_name="portfolio/react.html"), name='calc'),
 ]
