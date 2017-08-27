@@ -11803,7 +11803,7 @@ var FCC = function (_React$Component) {
           _react2.default.createElement(
             'h4',
             null,
-            'ReactJS Projects'
+            'React Projects'
           ),
           _react2.default.createElement(_Nav2.default, null),
           _react2.default.createElement(
@@ -12946,6 +12946,55 @@ var Simon = function (_React$Component2) {
         { id: 'simon' },
         _react2.default.createElement(
           'div',
+          { id: 'simon-instruct' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            'Instructions:'
+          ),
+          'The object of the game is to correctly repeat an increasing sequence of signals.',
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'ul',
+            null,
+            _react2.default.createElement(
+              'li',
+              null,
+              'Press ',
+              _react2.default.createElement(
+                'strong',
+                null,
+                '\'ON/OFF\''
+              ),
+              ' to power Simon on and off.'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              'Press ',
+              _react2.default.createElement(
+                'strong',
+                null,
+                '\'Start\''
+              ),
+              ' to begin and end play.'
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              'Press ',
+              _react2.default.createElement(
+                'strong',
+                null,
+                '\'Strict\''
+              ),
+              ' to force a new sequence upon losing'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
           { id: 'simon-container' },
           _react2.default.createElement(
             'div',
@@ -13955,7 +14004,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 100px;\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n\n    .react-nav {\n      margin-bottom: 40px;\n    }\n  }\n}\n", ""]);
+exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n  /*margin-bottom: 100px;*/\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n\n    .react-nav {\n      margin-bottom: 40px;\n    }\n  }\n}\n", ""]);
 
 // exports
 
@@ -13983,7 +14032,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Sarpanch:900);", ""]);
 
 // module
-exports.push([module.i, "/* SIMON */\n\n* {\n  /*outline: solid red;*/\n}\n\n#simon {\n  /*width: 500px;*/\n  margin: 0 auto;\n  /*outline: solid limegreen;*/\n}\n\n#simon h1 {\n  text-align: center;\n}\n\n#simon p {\n  margin: 25px;\n}\n\n#simon-container {\n  width: 500px;\n  position: relative;\n  margin: 0 auto;\n  background-color: black;\n  border-radius: 100%;\n  /*border: solid orange;*/\n}\n\n.simon-row {\n  width: 100%;\n  height: 250px;\n  /*outline: solid blue;*/\n  }\n\n.simon-pad {\n  display: inline-block;\n  width: 50%;\n  height: 100%;\n  border: solid black 30px;\n}\n\n.simon-pad:hover {\n  cursor: pointer;\n}\n\n#green {\n  border-right: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-left-radius: 100%;\n  background-color: #008500;\n}\n\n#green.on {\n  background-color: #00FF00;\n}\n\n #red {\n  border-left: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-right-radius: 100%;\n  background-color: #850000;\n}\n\n#red.on {\n  background-color: #FF0000;\n}\n\n#yellow {\n  border-right: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-left-radius: 100%;\n  background-color: #858500;\n}\n\n#yellow.on {\n  background-color: #FFFF00;\n}\n\n #blue {\n  border-left: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-right-radius: 100%;\n  background-color: #000085;\n}\n#blue.on {\n  background-color: #0000FF;\n}\n\n.center-area {\n  text-align: center;\n  color: #ddd;\n  background-color: black;\n  width: 250px;\n  height: 250px;\n  border-radius: 100%;\n  position: absolute;\n  top: 125px;\n  left: 125px;\n  margin: 0 auto;\n}\n\n.center-area h1 {\n  font-weight: 900;\n  font-family: 'Sarpanch', sans-serif;\n  margin-top: 45px;\n  margin-bottom: 0;\n  font-size: 60px;\n}\n\n.controls * {\n  border-radius: 10px;\n  padding: 7px;\n}\n\n.control-top {\n  display: flex;\n  justify-content: space-around;\n}\n\n\n.count {\n  width: 50px;\n  background-color: #333;\n  color: rgb(255, 0, 0);\n  font-weight: bold;\n}\n\n.start {\n  padding: 5px;\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.start-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color:#23d144;\n}\n\n.strict {\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.strict-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color: #23d144;\n}\n\n.on-off {\n  margin-top: 25px;\n  background-color: #ddd;\n  color: black;\n}\n\n.on-off-on {\n  margin-top: 25px;\n  border-color: #23d144;\n  background-color: #23d144\n}\n\nbutton.on {\n  background-color: red;\n}\n\n/*SIMON MEDIA QUERY*/\n\n@media (max-width: 550px) {\n\n  #simon-container {\n    width: 300px;\n  }\n\n  .simon-row {\n    width: 100%;\n    height: 150px;\n    }\n\n  .center-area {\n    width: 150px;\n    height: 150px;\n    top: 75px;\n    left: 75px;\n  }\n\n  .center-area h1 {\n    margin-top: 30px;\n    font-size: 30px;\n  }\n\n  .simon-pad {\n    display: inline-block;\n    width: 50%;\n    height: 100%;\n    border: solid black 20px;\n  }\n\n\n  .control-top {\n    justify-content: center;\n  }\n\n  .center-area h1 {\n    margin-top: 20px;\n    margin-bottom: 0px;\n  }\n\n  .center-area * {\n    margin: 0 5px;\n    padding: 0;\n    font-size: 10px;\n  }\n\n  .controls * {\n    padding-top: 5px;\n    padding-bottom: 5px;\n  }\n\n  .on-off {\n    margin-top: 10px;\n  }\n\n  .on-off-on {\n    margin-top: 10px;\n  }\n\n}\n", ""]);
+exports.push([module.i, "/* SIMON */\n\n* {\n  /*outline: solid red;*/\n}\n\n#simon {\n  /*width: 500px;*/\n  margin: 0 auto;\n  /*outline: solid limegreen;*/\n}\n\n#simon h1 {\n  text-align: center;\n}\n\n#simon p {\n  margin: 25px;\n}\n\n#simon-instruct {\n  margin: 40px;\n}\n\n#simon-container {\n  width: 500px;\n  position: relative;\n  margin: 0 auto;\n  background-color: black;\n  border-radius: 100%;\n  /*border: solid orange;*/\n}\n\n.simon-row {\n  width: 100%;\n  height: 250px;\n  /*outline: solid blue;*/\n  }\n\n.simon-pad {\n  display: inline-block;\n  width: 50%;\n  height: 100%;\n  border: solid black 30px;\n}\n\n.simon-pad:hover {\n  cursor: pointer;\n}\n\n#green {\n  border-right: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-left-radius: 100%;\n  background-color: #008500;\n}\n\n#green.on {\n  background-color: #00FF00;\n}\n\n #red {\n  border-left: black solid 15px;\n  border-bottom: solid black 15px;\n  border-top-right-radius: 100%;\n  background-color: #850000;\n}\n\n#red.on {\n  background-color: #FF0000;\n}\n\n#yellow {\n  border-right: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-left-radius: 100%;\n  background-color: #858500;\n}\n\n#yellow.on {\n  background-color: #FFFF00;\n}\n\n #blue {\n  border-left: black solid 15px;\n  border-top: solid black 15px;\n  border-bottom-right-radius: 100%;\n  background-color: #000085;\n}\n#blue.on {\n  background-color: #0000FF;\n}\n\n.center-area {\n  text-align: center;\n  color: #ddd;\n  background-color: black;\n  width: 250px;\n  height: 250px;\n  border-radius: 100%;\n  position: absolute;\n  top: 125px;\n  left: 125px;\n  margin: 0 auto;\n}\n\n.center-area h1 {\n  font-weight: 900;\n  font-family: 'Sarpanch', sans-serif;\n  margin-top: 45px;\n  margin-bottom: 0;\n  font-size: 60px;\n}\n\n.controls * {\n  border-radius: 10px;\n  padding: 7px;\n}\n\n.control-top {\n  display: flex;\n  justify-content: space-around;\n}\n\n\n.count {\n  width: 50px;\n  background-color: #333;\n  color: rgb(255, 0, 0);\n  font-weight: bold;\n}\n\n.start {\n  padding: 5px;\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.start-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color:#23d144;\n}\n\n.strict {\n  width: 50px;\n  background-color:#ddd;\n  color: black;\n}\n\n.strict-on {\n  width: 50px;\n  border-color: #23d144;\n  background-color: #23d144;\n}\n\n.on-off {\n  margin-top: 25px;\n  background-color: #ddd;\n  color: black;\n}\n\n.on-off-on {\n  margin-top: 25px;\n  border-color: #23d144;\n  background-color: #23d144\n}\n\nbutton.on {\n  background-color: red;\n}\n\n/*SIMON MEDIA QUERY*/\n\n@media (max-width: 550px) {\n\n  #simon-container {\n    width: 300px;\n  }\n\n  .simon-row {\n    width: 100%;\n    height: 150px;\n    }\n\n  .center-area {\n    width: 150px;\n    height: 150px;\n    top: 75px;\n    left: 75px;\n  }\n\n  .center-area h1 {\n    margin-top: 30px;\n    font-size: 30px;\n  }\n\n  .simon-pad {\n    display: inline-block;\n    width: 50%;\n    height: 100%;\n    border: solid black 20px;\n  }\n\n\n  .control-top {\n    justify-content: center;\n  }\n\n  .center-area h1 {\n    margin-top: 20px;\n    margin-bottom: 0px;\n  }\n\n  .center-area * {\n    margin: 0 5px;\n    padding: 0;\n    font-size: 10px;\n  }\n\n  .controls * {\n    padding-top: 5px;\n    padding-bottom: 5px;\n  }\n\n  .on-off {\n    margin-top: 10px;\n  }\n\n  .on-off-on {\n    margin-top: 10px;\n  }\n\n}\n", ""]);
 
 // exports
 

@@ -21,6 +21,10 @@
   margin: 25px;
 }
 
+#simon-instruct {
+  margin: 40px;
+}
+
 #simon-container {
   width: 500px;
   position: relative;

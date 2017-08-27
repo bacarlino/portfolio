@@ -16,7 +16,7 @@ export default class FCC extends React.Component {
     return (
       <Router>
         <div className="react-container">
-          <h4>ReactJS Projects</h4>
+          <h4>React Projects</h4>
           <Nav />
           <Switch>
             {/* <Route exact path='/portfolio/react' component={Home} /> */}

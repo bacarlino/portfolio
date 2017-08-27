@@ -348,6 +348,16 @@ export default class Simon extends React.Component {
   render() {
     return (
       <div id='simon'>
+        <div id='simon-instruct'>
+        <h4>Instructions:</h4>
+        The object of the game is to correctly repeat an increasing sequence of signals.
+        <br /><br />
+          <ul>
+            <li>Press <strong>'ON/OFF'</strong> to power Simon on and off.</li>
+            <li>Press <strong>'Start'</strong> to begin and end play.</li>
+            <li>Press <strong>'Strict'</strong> to force a new sequence upon losing</li>
+          </ul>
+        </div>
         <div id='simon-container'>
           <div className='simon-row'>
             <Pad
