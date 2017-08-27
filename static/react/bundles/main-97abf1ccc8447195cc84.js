@@ -11801,12 +11801,6 @@ var FCC = function (_React$Component) {
           'div',
           { className: 'react-container' },
           _react2.default.createElement(
-            'h4',
-            null,
-            'React Projects'
-          ),
-          _react2.default.createElement(_Nav2.default, null),
-          _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
             _react2.default.createElement(_reactRouterDom.Route, { path: '/portfolio/react/calculator', component: _Calculator2.default }),
@@ -14004,7 +13998,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n  /*margin-bottom: 100px;*/\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n\n    .react-nav {\n      margin-bottom: 40px;\n    }\n  }\n}\n", ""]);
+exports.push([module.i, "html,\nbody,\n#app\n{\n  height: 100%;\n}\n\n\nbody {\n  color: #222;\n  background-color: #DEDEDE;\n  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;\n}\n\nul {\n  padding: 0;\n}\n\nli {\n  list-style-type: none;\n}\n\na {\n  text-decoration: none;\n  color: #222;\n}\n\n.react-container {\n  text-align: center;\n  height: 100%;\n}\n\n.react-nav {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 100px;\n}\n\n.active {\n  font-weight: bold;\n}\n\n.react-nav li {\n  margin-right: 15px;\n}\n\n#react-home {\n  display: flex;\n  flex-direction: column;\n}\n\n#react-home h1 {\n  font-size: 3000%;\n  margin: 0;\n}\n\n#react-home h2 {\n  margin-top: 0;\n}\n\n@media (max-width: 750px) {\n  #home h1 {\n    font-size: 2000%;\n  }\n\n  @media (max-width: 500px) {\n    #home h1 {\n      font-size: 1250%;\n    }\n\n    .react-nav {\n      margin-bottom: 40px;\n    }\n  }\n}\n", ""]);
 
 // exports
 
